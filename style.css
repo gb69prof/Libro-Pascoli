@@ -12,6 +12,8 @@ body {
   color: #222;
 }
 
+/* ---------- HEADER ---------- */
+
 .topbar {
   background: linear-gradient(90deg, #ff7b3a, #ffb347);
   color: #fff;
@@ -29,6 +31,8 @@ body {
   margin: 0.3rem 0 0;
   font-size: 0.95rem;
 }
+
+/* ---------- NAVBAR ---------- */
 
 .navbar {
   display: flex;
@@ -53,6 +57,8 @@ body {
   background: #ff7b3a;
   transform: translateY(-1px);
 }
+
+/* ---------- LAYOUT & PANELS ---------- */
 
 .layout {
   display: grid;
@@ -85,6 +91,8 @@ body {
   margin-inline: auto;
 }
 
+/* ---------- TESTO & NOTE ---------- */
+
 .hint {
   font-size: 0.9rem;
   color: #555;
@@ -98,7 +106,7 @@ body {
   margin-bottom: 0.6rem;
 }
 
-/* media */
+/* ---------- MEDIA (VIDEO / IMMAGINI) ---------- */
 
 .media-block {
   margin-bottom: 1.2rem;
@@ -149,7 +157,7 @@ body {
   margin-top: 0.4rem;
 }
 
-/* testo interattivo */
+/* ---------- TESTO INTERATTIVO ---------- */
 
 .textbook {
   margin-top: 1rem;
@@ -182,7 +190,7 @@ body {
   box-shadow: 0 0 0 1px #f59e0b;
 }
 
-/* toolbar */
+/* ---------- TOOLBAR / BOTTONI ---------- */
 
 .toolbar {
   margin-top: 0.8rem;
@@ -214,6 +222,14 @@ button:active {
   box-shadow: 0 3px 7px rgba(79, 70, 229, 0.35);
 }
 
+/* Bottoni mappa concettuale */
+
+.map-btn-active {
+  background: #f97316;
+}
+
+/* ---------- TEXTAREA RIASSUNTO ---------- */
+
 textarea#summary-text {
   width: 100%;
   border-radius: 0.75rem;
@@ -223,7 +239,7 @@ textarea#summary-text {
   resize: vertical;
 }
 
-/* quiz */
+/* ---------- QUIZ ---------- */
 
 .question {
   border-radius: 0.8rem;
@@ -253,7 +269,7 @@ textarea#summary-text {
   font-weight: 600;
 }
 
-/* footer */
+/* ---------- FOOTER ---------- */
 
 .footer {
   text-align: center;
@@ -262,13 +278,13 @@ textarea#summary-text {
   padding: 1rem 0 1.3rem;
 }
 
-/* nested panel */
+/* ---------- PANEL NESTED (sotto il testo) ---------- */
 
 .panel.nested {
   margin: 0.9rem 0 0;
 }
 
-/* responsive */
+/* ---------- RESPONSIVE ---------- */
 
 @media (max-width: 900px) {
   .layout {
