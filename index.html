@@ -15,7 +15,7 @@
   <nav class="navbar">
     <a href="#intro">Introduzione</a>
     <a href="#video">Video</a>
-    <a href="#mappe">Mappe concettuali</a>
+    <a href="#mappe">Mappe</a>
     <a href="#testo">Testo interattivo</a>
     <a href="#quiz">Verifica</a>
   </nav>
@@ -32,7 +32,7 @@
 
       <article class="text-block">
         <p>
-          Giovanni Pascoli (1855‑1912) è il poeta che più di ogni altro registra la
+          Giovanni Pascoli (1855-1912) è il poeta che più di ogni altro registra la
           crisi di fine Ottocento: i valori tradizionali scricchiolano, la fede nella
           scienza si incrina, l&#39;io si fa fragile e pieno di paure. A questa crisi
           Pascoli risponde inventando una nuova figura: <strong>il fanciullino</strong>.
@@ -46,13 +46,14 @@
         <p>
           Le tragedie familiari (l&#39;assassinio del padre, la morte della madre, dei
           fratelli) lasciano nel poeta una ferita profonda. Da qui nascono la
-          centralità del <strong>nido‑famiglia</strong>, il bisogno di protezione e la paura di un
+          centralità del <strong>nido-famiglia</strong>, il bisogno di protezione e la paura di un
           mondo esterno ostile. Il nido diventa il luogo caldo e chiuso in cui la pace
           può ancora essere custodita.
         </p>
       </article>
     </section>
 
+    <!-- Colonna destra: video -->
     <section class="panel side-panel" id="video">
       <h2>Video su Pascoli</h2>
 
@@ -122,123 +123,137 @@
     </section>
   </main>
 
-  <!-- MAPPE CONCETTUALI -->
+  <!-- MAPPE CONCETTUALI: CARICAMENTO A CLICK, UNA ALLA VOLTA -->
   <section class="panel full-width" id="mappe">
     <h2>Mappe concettuali su Pascoli</h2>
     <p class="hint">
-      Clicca sulle immagini per vederle ingrandite (si aprono in una nuova scheda).
+      Scegli una voce: l&#39;immagine relativa verrà caricata solo al momento del click
+      (la pagina iniziale è più leggera).
     </p>
-    <div class="media-grid">
-      <figure>
-        <a href="assets/pascoli_intro.png" target="_blank">
-          <img src="assets/pascoli_intro.png" alt="Introduzione a Pascoli">
-        </a>
-        <figcaption>Schema introduttivo su Pascoli.</figcaption>
-      </figure>
 
-      <figure>
-        <a href="assets/politica.png" target="_blank">
-          <img src="assets/politica.png" alt="La visione politica di Pascoli">
-        </a>
-        <figcaption>La visione politica: socialismo e nazionalismo.</figcaption>
-      </figure>
+    <div class="toolbar" style="margin-top:0.8rem;">
+      <button type="button"
+              class="map-btn"
+              data-img="pascoli_intro.png"
+              data-caption="Schema introduttivo su Pascoli.">
+        Introduzione
+      </button>
 
-      <figure>
-        <a href="assets/scienza.png" target="_blank">
-          <img src="assets/scienza.png" alt="Il rifiuto della scienza">
-        </a>
-        <figcaption>Il rifiuto della scienza e l&#39;uomo reso infelice.</figcaption>
-      </figure>
+      <button type="button"
+              class="map-btn"
+              data-img="politica.png"
+              data-caption="La visione politica: socialismo e nazionalismo.">
+        Visione politica
+      </button>
 
-      <figure>
-        <a href="assets/pascoli_simbolista.png" target="_blank">
-          <img src="assets/pascoli_simbolista.png" alt="Pascoli simbolista">
-        </a>
-        <figcaption>Il simbolismo pascoliano e le cose umili.</figcaption>
-      </figure>
+      <button type="button"
+              class="map-btn"
+              data-img="scienza.png"
+              data-caption="Il rifiuto della scienza e l&#39;uomo reso infelice.">
+        Rifiuto della scienza
+      </button>
 
-      <figure>
-        <a href="assets/siepe.png" target="_blank">
-          <img src="assets/siepe.png" alt="La siepe in Pascoli e Leopardi">
-        </a>
-        <figcaption>Confronto tra la siepe in Pascoli e Leopardi.</figcaption>
-      </figure>
+      <button type="button"
+              class="map-btn"
+              data-img="pascoli_simbolista.png"
+              data-caption="Il simbolismo pascoliano e le cose umili.">
+        Pascoli simbolista
+      </button>
 
-      <figure>
-        <a href="assets/digitale.png" target="_blank">
-          <img src="assets/digitale.png" alt="Digitale purpurea">
-        </a>
-        <figcaption><em>Digitale purpurea</em>: il simbolo del proibito.</figcaption>
-      </figure>
+      <button type="button"
+              class="map-btn"
+              data-img="siepe.png"
+              data-caption="La siepe in Pascoli e Leopardi.">
+        La siepe
+      </button>
 
-      <figure>
-        <a href="assets/fanciullino.png" target="_blank">
-          <img src="assets/fanciullino.png" alt="Il poeta è un fanciullino">
-        </a>
-        <figcaption>Il poeta come fanciullino.</figcaption>
-      </figure>
+      <button type="button"
+              class="map-btn"
+              data-img="digitale.png"
+              data-caption="Digitale purpurea: il simbolo del proibito.">
+        Digitale purpurea
+      </button>
 
-      <figure>
-        <a href="assets/fanciullino2.png" target="_blank">
-          <img src="assets/fanciullino2.png" alt="La poetica del fanciullino">
-        </a>
-        <figcaption>La poetica del fanciullino.</figcaption>
-      </figure>
+      <button type="button"
+              class="map-btn"
+              data-img="fanciullino.png"
+              data-caption="Il poeta come fanciullino.">
+        Il poeta è un fanciullino
+      </button>
 
-      <figure>
-        <a href="assets/fanciullino3.png" target="_blank">
-          <img src="assets/fanciullino3.png" alt="Il fanciullino – schema riassuntivo">
-        </a>
-        <figcaption>Il fanciullino: sentimenti, chi, dove.</figcaption>
-      </figure>
+      <button type="button"
+              class="map-btn"
+              data-img="fanciullino2.png"
+              data-caption="La poetica del fanciullino.">
+        Poetica del fanciullino
+      </button>
 
-      <figure>
-        <a href="assets/forma.png" target="_blank">
-          <img src="assets/forma.png" alt="La forma della poesia pascoliana">
-        </a>
-        <figcaption>La forma: parola, sintassi, effetti sonori.</figcaption>
-      </figure>
+      <button type="button"
+              class="map-btn"
+              data-img="fanciullino3.png"
+              data-caption="Il fanciullino: sentimenti, chi, dove.">
+        Il fanciullino – schema
+      </button>
 
-      <figure>
-        <a href="assets/sintassi.png" target="_blank">
-          <img src="assets/sintassi.png" alt="Sintassi scientifica e sintassi pascoliana">
-        </a>
-        <figcaption>Confronto fra sintassi scientifica e sintassi pascoliana.</figcaption>
-      </figure>
+      <button type="button"
+              class="map-btn"
+              data-img="forma.png"
+              data-caption="La forma: parola, sintassi, effetti sonori.">
+        La forma
+      </button>
 
-      <figure>
-        <a href="assets/tecniche_suono.png" target="_blank">
-          <img src="assets/tecniche_suono.png" alt="Tecniche per esprimere il rumore del tuono">
-        </a>
-        <figcaption>Onomatopea e allitterazione per rendere il tuono.</figcaption>
-      </figure>
+      <button type="button"
+              class="map-btn"
+              data-img="sintassi.png"
+              data-caption="Sintassi scientifica e sintassi pascoliana.">
+        Sintassi
+      </button>
 
-      <figure>
-        <a href="assets/suono.png" target="_blank">
-          <img src="assets/suono.png" alt="Il suono diventa parola">
-        </a>
-        <figcaption>Dal suono alla parola simbolo.</figcaption>
-      </figure>
+      <button type="button"
+              class="map-btn"
+              data-img="tecniche_suono.png"
+              data-caption="Due tecniche per esprimere il rumore del tuono.">
+        Tecniche del suono
+      </button>
 
-      <figure>
-        <a href="assets/stupore.png" target="_blank">
-          <img src="assets/stupore.png" alt="Stupore">
-        </a>
-        <figcaption>Lo stupore come motore della poesia.</figcaption>
-      </figure>
+      <button type="button"
+              class="map-btn"
+              data-img="suono.png"
+              data-caption="Il suono diventa parola simbolo.">
+        Il suono diventa parola
+      </button>
 
-      <figure>
-        <a href="assets/sinestesia.png" target="_blank">
-          <img src="assets/sinestesia.png" alt="Sinestesia">
-        </a>
-        <figcaption>La sinestesia: il silenzio candido.</figcaption>
-      </figure>
+      <button type="button"
+              class="map-btn"
+              data-img="stupore.png"
+              data-caption="Lo stupore come motore della poesia.">
+        Stupore
+      </button>
 
-      <figure>
-        <a href="assets/allitterazione.png" target="_blank">
-          <img src="assets/allitterazione.png" alt="Allitterazione rimbombò, rimbalzò, rotolò">
-        </a>
-        <figcaption>Allitterazione: rimbombò, rimbalzò, rotolò.</figcaption>
+      <button type="button"
+              class="map-btn"
+              data-img="sinestesia.png"
+              data-caption="Sinestesia: silenzio candido.">
+        Sinestesia
+      </button>
+
+      <button type="button"
+              class="map-btn"
+              data-img="allitterazione.png"
+              data-caption="Allitterazione: rimbombò, rimbalzò, rotolò.">
+        Allitterazione
+      </button>
+    </div>
+
+    <div class="media-grid" style="margin-top:1rem;">
+      <figure style="grid-column: 1 / -1;">
+        <img id="mappa-attiva"
+             src=""
+             alt=""
+             style="display:none; max-width:100%; border-radius:0.75rem;">
+        <figcaption id="mappa-didascalia" class="hint" style="margin-top:0.6rem;">
+          Nessuna mappa selezionata: clicca uno dei pulsanti qui sopra per visualizzarla.
+        </figcaption>
       </figure>
     </div>
   </section>
@@ -257,7 +272,7 @@
         Le tragedie familiari segnano l&#39;intera vita di Pascoli. La morte violenta del
         padre, seguita dalla scomparsa della madre e di alcuni fratelli, distrugge il
         nucleo familiare e lascia nel poeta un senso di insicurezza radicale. Da qui
-        nasce il bisogno di ricostruire un <strong>nido‑famiglia</strong> protetto, chiuso, caldo,
+        nasce il bisogno di ricostruire un <strong>nido-famiglia</strong> protetto, chiuso, caldo,
         in cui gli affetti possano essere difesi dalla brutalità del mondo esterno.
       </span></p>
 
@@ -356,7 +371,7 @@
 
     <form id="quiz-form">
       <div class="question" data-question-id="q1">
-        <p><strong>1.</strong> Che cosa rappresenta il <em>nido‑famiglia</em> nella poesia di Pascoli?</p>
+        <p><strong>1.</strong> Che cosa rappresenta il <em>nido-famiglia</em> nella poesia di Pascoli?</p>
         <label>
           <input type="radio" name="q1" value="a">
           Un semplice ricordo autobiografico senza valore simbolico.
@@ -444,6 +459,34 @@
     <p>Web app &laquo;Giovanni Pascoli – Il fanciullino&raquo; – struttura base HTML, CSS e JavaScript.</p>
   </footer>
 
+  <!-- Script principale (sottolineature + quiz) -->
   <script src="script.js"></script>
+
+  <!-- Script per il caricamento delle mappe a richiesta -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const buttons = document.querySelectorAll(".map-btn");
+      const img = document.getElementById("mappa-attiva");
+      const caption = document.getElementById("mappa-didascalia");
+
+      buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const file = btn.getAttribute("data-img");
+          const text = btn.getAttribute("data-caption") || "";
+
+          // aggiorna stato attivo dei bottoni
+          buttons.forEach(b => b.classList.remove("map-btn-active"));
+          btn.classList.add("map-btn-active");
+
+          // carica immagine solo ora
+          img.src = "assets/" + file;
+          img.style.display = "block";
+          img.alt = text;
+          caption.textContent = text;
+        });
+      });
+    });
+  </script>
 </body>
 </html>
+
