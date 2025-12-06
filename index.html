@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Giovanni Pascoli – Il fanciullino (web app libro)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Giovanni Pascoli – Il fanciullino</h1>
+    <p>Web app libro scolastico: testo interattivo, mappe, video, verifica</p>
+  </header>
+
+  <nav class="navbar">
+    <a href="#intro">Introduzione</a>
+    <a href="#video">Video</a>
+    <a href="#mappe">Mappe concettuali</a>
+    <a href="#testo">Testo interattivo</a>
+    <a href="#quiz">Verifica</a>
+  </nav>
+
+  <main class="layout">
+    <!-- Colonna sinistra: testo e evidenziazioni -->
+    <section class="panel main-panel" id="intro">
+      <h2>Introduzione a Pascoli</h2>
+      <p class="hint">
+        Questa web app funziona come un piccolo libro digitale su Pascoli.
+        Nel riquadro <strong>Testo interattivo</strong> puoi sottolineare le frasi importanti
+        e generare automaticamente un tuo <strong>riassunto</strong>.
+      </p>
+
+      <article class="text-block">
+        <p>
+          Giovanni Pascoli (1855‑1912) è il poeta che più di ogni altro registra la
+          crisi di fine Ottocento: i valori tradizionali scricchiolano, la fede nella
+          scienza si incrina, l&#39;io si fa fragile e pieno di paure. A questa crisi
+          Pascoli risponde inventando una nuova figura: <strong>il fanciullino</strong>.
+        </p>
+        <p>
+          Il fanciullino è quella parte di noi che non è mai cresciuta: si stupisce di
+          tutto, ha paura del buio, piange e ride senza un perché, dà un nome nuovo
+          alle cose che vede. Per Pascoli il vero poeta è chi custodisce questo
+          sguardo infantile e lo trasforma in poesia.
+        </p>
+        <p>
+          Le tragedie familiari (l&#39;assassinio del padre, la morte della madre, dei
+          fratelli) lasciano nel poeta una ferita profonda. Da qui nascono la
+          centralità del <strong>nido‑famiglia</strong>, il bisogno di protezione e la paura di un
+          mondo esterno ostile. Il nido diventa il luogo caldo e chiuso in cui la pace
+          può ancora essere custodita.
+        </p>
+      </article>
+    </section>
+
+    <section class="panel side-panel" id="video">
+      <h2>Video su Pascoli</h2>
+
+      <div class="media-block">
+        <h3>1. Introduzione a Pascoli</h3>
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/OHzHzKf0vdE?si=7pj44k0NCFej2sxj"
+            title="Introduzione a Pascoli"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <div class="media-block">
+        <h3>2. Pascoli introduce se stesso</h3>
+        <div class="video-wrapper">
+          <iframe
+            src="https://app.heygen.com/embedded-player/921a340e480a48fa94d440855d633b4a"
+            title="Pascoli introduce se stesso"
+            frameborder="0"
+            allow="encrypted-media; fullscreen;"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <div class="media-block">
+        <h3>3. Libera introduce Pascoli</h3>
+        <div class="video-wrapper">
+          <iframe
+            src="https://app.heygen.com/embedded-player/c2cbc05f271145248c83d567d0093b35"
+            title="Libera introduce Pascoli"
+            frameborder="0"
+            allow="encrypted-media; fullscreen;"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <div class="media-block">
+        <h3>4. Pascoli recita &quot;Il gelsomino notturno&quot;</h3>
+        <div class="video-wrapper">
+          <iframe
+            src="https://app.heygen.com/embedded-player/db43983e36904bdcb1574fe2b2622a46"
+            title="Pascoli recita Il gelsomino notturno"
+            frameborder="0"
+            allow="encrypted-media; fullscreen;"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <div class="media-block">
+        <h3>Audio (da aggiungere)</h3>
+        <p class="hint">
+          Qui puoi inserire un file audio (lettura di una poesia, spiegazione, ecc.).
+          Basta caricare un MP3 nella cartella <code>assets</code> e sostituire il nome del file.
+        </p>
+        <audio controls>
+          <source src="assets/intro_pascoli.mp3" type="audio/mpeg">
+          Il tuo browser non supporta l&#39;elemento audio.
+        </audio>
+      </div>
+    </section>
+  </main>
+
+  <!-- MAPPE CONCETTUALI -->
+  <section class="panel full-width" id="mappe">
+    <h2>Mappe concettuali su Pascoli</h2>
+    <p class="hint">
+      Clicca sulle immagini per vederle ingrandite (si aprono in una nuova scheda).
+    </p>
+    <div class="media-grid">
+      <figure>
+        <a href="assets/pascoli_intro.png" target="_blank">
+          <img src="assets/pascoli_intro.png" alt="Introduzione a Pascoli">
+        </a>
+        <figcaption>Schema introduttivo su Pascoli.</figcaption>
+      </figure>
+
+      <figure>
+        <a href="assets/politica.png" target="_blank">
+          <img src="assets/politica.png" alt="La visione politica di Pascoli">
+        </a>
+        <figcaption>La visione politica: socialismo e nazionalismo.</figcaption>
+      </figure>
+
+      <figure>
+        <a href="assets/scienza.png" target="_blank">
+          <img src="assets/scienza.png" alt="Il rifiuto della scienza">
+        </a>
+        <figcaption>Il rifiuto della scienza e l&#39;uomo reso infelice.</figcaption>
+      </figure>
+
+      <figure>
+        <a href="assets/pascoli_simbolista.png" target="_blank">
+          <img src="assets/pascoli_simbolista.png" alt="Pascoli simbolista">
+        </a>
+        <figcaption>Il simbolismo pascoliano e le cose umili.</figcaption>
+      </figure>
+
+      <figure>
+        <a href="assets/siepe.png" target="_blank">
+          <img src="assets/siepe.png" alt="La siepe in Pascoli e Leopardi">
+        </a>
+        <figcaption>Confronto tra la siepe in Pascoli e Leopardi.</figcaption>
+      </figure>
+
+      <figure>
+        <a href="assets/digitale.png" target="_blank">
+          <img src="assets/digitale.png" alt="Digitale purpurea">
+        </a>
+        <figcaption><em>Digitale purpurea</em>: il simbolo del proibito.</figcaption>
+      </figure>
+
+      <figure>
+        <a href="assets/fanciullino.png" target="_blank">
+          <img src="assets/fanciullino.png" alt="Il poeta è un fanciullino">
+        </a>
+        <figcaption>Il poeta come fanciullino.</figcaption>
+      </figure>
+
+      <figure>
+        <a href="assets/fanciullino2.png" target="_blank">
+          <img src="assets/fanciullino2.png" alt="La poetica del fanciullino">
+        </a>
+        <figcaption>La poetica del fanciullino.</figcaption>
+      </figure>
+
+      <figure>
+        <a href="assets/fanciullino3.png" target="_blank">
+          <img src="assets/fanciullino3.png" alt="Il fanciullino – schema riassuntivo">
+        </a>
+        <figcaption>Il fanciullino: sentimenti, chi, dove.</figcaption>
+      </figure>
+
+      <figure>
+        <a href="assets/forma.png" target="_blank">
+          <img src="assets/forma.png" alt="La forma della poesia pascoliana">
+        </a>
+        <figcaption>La forma: parola, sintassi, effetti sonori.</figcaption>
+      </figure>
+
+      <figure>
+        <a href="assets/sintassi.png" target="_blank">
+          <img src="assets/sintassi.png" alt="Sintassi scientifica e sintassi pascoliana">
+        </a>
+        <figcaption>Confronto fra sintassi scientifica e sintassi pascoliana.</figcaption>
+      </figure>
+
+      <figure>
+        <a href="assets/tecniche_suono.png" target="_blank">
+          <img src="assets/tecniche_suono.png" alt="Tecniche per esprimere il rumore del tuono">
+        </a>
+        <figcaption>Onomatopea e allitterazione per rendere il tuono.</figcaption>
+      </figure>
+
+      <figure>
+        <a href="assets/suono.png" target="_blank">
+          <img src="assets/suono.png" alt="Il suono diventa parola">
+        </a>
+        <figcaption>Dal suono alla parola simbolo.</figcaption>
+      </figure>
+
+      <figure>
+        <a href="assets/stupore.png" target="_blank">
+          <img src="assets/stupore.png" alt="Stupore">
+        </a>
+        <figcaption>Lo stupore come motore della poesia.</figcaption>
+      </figure>
+
+      <figure>
+        <a href="assets/sinestesia.png" target="_blank">
+          <img src="assets/sinestesia.png" alt="Sinestesia">
+        </a>
+        <figcaption>La sinestesia: il silenzio candido.</figcaption>
+      </figure>
+
+      <figure>
+        <a href="assets/allitterazione.png" target="_blank">
+          <img src="assets/allitterazione.png" alt="Allitterazione rimbombò, rimbalzò, rotolò">
+        </a>
+        <figcaption>Allitterazione: rimbombò, rimbalzò, rotolò.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- TESTO INTERATTIVO CON SOTTOLINEATURA -->
+  <section class="panel full-width" id="testo">
+    <h2>Testo interattivo – Il pensiero di Pascoli</h2>
+    <p class="hint">
+      Clicca sui blocchi di testo per evidenziarli. Le evidenziazioni rimangono salvate
+      nel browser (anche se chiudi la pagina). Con il pulsante in fondo puoi creare un
+      testo composto solo dalle parti evidenziate.
+    </p>
+
+    <article class="textbook">
+      <p><span data-seg="1">
+        Le tragedie familiari segnano l&#39;intera vita di Pascoli. La morte violenta del
+        padre, seguita dalla scomparsa della madre e di alcuni fratelli, distrugge il
+        nucleo familiare e lascia nel poeta un senso di insicurezza radicale. Da qui
+        nasce il bisogno di ricostruire un <strong>nido‑famiglia</strong> protetto, chiuso, caldo,
+        in cui gli affetti possano essere difesi dalla brutalità del mondo esterno.
+      </span></p>
+
+      <p><span data-seg="2">
+        Il nido non è solo un luogo fisico: è un simbolo. Indica la casa, la siepe, lo
+        spazio domestico dove la pace è ancora possibile. Fuori dal nido c&#39;è un mondo
+        minaccioso, fatto di lutti, di odio sociale, di violenza. Dentro il nido esiste una
+        felicità fragile che va difesa a ogni costo.
+      </span></p>
+
+      <p><span data-seg="3">
+        Per interpretare questo mondo ferito, Pascoli inventa la figura del
+        <strong>fanciullino</strong>. In ogni uomo, dice il poeta, vive un bambino che continua a
+        stupirsi, a piangere e a ridere senza un perché, a vedere nella realtà dettagli
+        che gli adulti non notano più. Il poeta autentico è colui che ascolta questo
+        fanciullino e lascia che sia lui a parlare.
+      </span></p>
+
+      <p><span data-seg="4">
+        La poesia nasce allora dallo <strong>stupore</strong>. Il mondo non è spiegato razionalmente,
+        ma mostrato attraverso lampi di immagini e sensazioni. Il verso pascoliano
+        registra un miscuglio indistinto di suoni, luci, odori: è il modo in cui il
+        fanciullino percepisce la realtà prima che intervenga la logica.
+      </span></p>
+
+      <p><span data-seg="5">
+        Anche la <strong>forma</strong> cambia. La sintassi tradizionale, costruita su rapporti logici
+        di subordinazione, lascia il posto alla <em>paratassi</em>: brevi frasi coordinate,
+        spesso senza congiunzioni, accostate come fotogrammi. Il discorso non vuole
+        dimostrare una tesi, ma dipingere una sequenza di immagini, come farebbe un
+        bambino che racconta ciò che vede senza metterlo in ordine gerarchico.
+      </span></p>
+
+      <p><span data-seg="6">
+        Anche le <strong>parole</strong> diventano nuove. Pascoli ama gli effetti sonori: allitterazioni,
+        onomatopee, rime interne. Nel celebre verso «rimbombò, rimbalzò, rotolò» il
+        rumore del tuono è reso dalla ripetizione della <em>r</em> e delle sillabe iniziali. Nel
+        «bubbòlio lontano» il suono stesso sembra farsi significato. Il confine fra
+        rumore e parola si assottiglia.
+      </span></p>
+
+      <p><span data-seg="7">
+        Un ruolo centrale ha anche la <strong>sinestesia</strong>, cioè l&#39;incrocio di sensazioni diverse:
+        «silenzio candido» unisce udito e vista, creando un&#39;immagine che non esiste
+        nella realtà, ma solo nell&#39;interiorità del poeta. La parola non descrive più un
+        oggetto esterno: fa emergere una sensazione intima, indicibile, che appartiene
+        all&#39;io più profondo.
+      </span></p>
+
+      <p><span data-seg="8">
+        Dal punto di vista politico Pascoli vive una tensione fra <strong>socialismo</strong> e
+        <strong>nazionalismo</strong>. Da un lato, la sofferenza personale lo avvicina all&#39;idea che
+        tutti gli uomini siano fratelli e che il socialismo possa allontanare i mali del
+        mondo. Dall&#39;altro, il bisogno di protezione lo spinge a vedere nella nazione un
+        grande nido collettivo, da difendere contro i nemici esterni.
+      </span></p>
+
+      <p><span data-seg="9">
+        Nei confronti della <strong>scienza</strong>, Pascoli è diffidente. L&#39;uomo, dice, si è servito
+        della scienza per uccidere: le nuove tecnologie amplificano la violenza invece
+        di portare felicità. La scienza ha promesso troppo e ha reso più amaro il dolore,
+        perché ha offuscato la consolazione della fede senza riuscire a sostituirla.
+      </span></p>
+
+      <p><span data-seg="10">
+        La poesia di Pascoli è quindi profondamente <strong>simbolista</strong>. Le cose umili –
+        un fiore, un nido, una siepe, una campana – si caricano di significati interiori.
+        Non esiste un mondo oggettivo indipendente da noi: «il mondo nasce per ognun
+        che nasce al mondo». Ogni cosa diventa simbolo di uno stato d&#39;animo e rimanda
+        a un&#39;interiorità ferita ma ancora capace di stupore.
+      </span></p>
+    </article>
+
+    <div class="toolbar">
+      <button id="btn-genera-riassunto">Crea testo dalle parti evidenziate</button>
+      <button id="btn-pulisci-evidenziazioni">Pulisci tutte le evidenziazioni</button>
+    </div>
+
+    <section class="panel nested">
+      <h3>Testo generato dalle evidenziazioni</h3>
+      <p class="hint">
+        Qui sotto appare il testo ottenuto unendo solo i blocchi che hai evidenziato.
+        Puoi copiarlo, modificarlo e usarlo come base per il tuo ripasso.
+      </p>
+      <textarea id="summary-text" rows="7"
+        placeholder="Clicca su &quot;Crea testo dalle parti evidenziate&quot; per costruire il tuo riassunto."></textarea>
+    </section>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="panel full-width" id="quiz">
+    <h2>Verifica – Il pensiero di Pascoli</h2>
+    <p class="hint">
+      Scegli la risposta corretta per ogni domanda. Poi clicca su &quot;Correggi test&quot;.
+    </p>
+
+    <form id="quiz-form">
+      <div class="question" data-question-id="q1">
+        <p><strong>1.</strong> Che cosa rappresenta il <em>nido‑famiglia</em> nella poesia di Pascoli?</p>
+        <label>
+          <input type="radio" name="q1" value="a">
+          Un semplice ricordo autobiografico senza valore simbolico.
+        </label>
+        <label>
+          <input type="radio" name="q1" value="b" data-correct>
+          Il luogo caldo e protetto dove gli affetti sono difesi dal mondo esterno.
+        </label>
+        <label>
+          <input type="radio" name="q1" value="c">
+          Un progetto politico per riformare la società.
+        </label>
+      </div>
+
+      <div class="question" data-question-id="q2">
+        <p><strong>2.</strong> Chi è il <strong>fanciullino</strong> secondo Pascoli?</p>
+        <label>
+          <input type="radio" name="q2" value="a" data-correct>
+          La parte infantile che sopravvive in ogni uomo e sa stupirsi del mondo.
+        </label>
+        <label>
+          <input type="radio" name="q2" value="b">
+          Un personaggio inventato per i bambini.
+        </label>
+        <label>
+          <input type="radio" name="q2" value="c">
+          Un poeta amico di Pascoli.
+        </label>
+      </div>
+
+      <div class="question" data-question-id="q3">
+        <p><strong>3.</strong> Quale tra queste caratteristiche appartiene alla <strong>sintassi pascoliana</strong>?</p>
+        <label>
+          <input type="radio" name="q3" value="a">
+          Periodi molto lunghi e complessi, ricchi di subordinate.
+        </label>
+        <label>
+          <input type="radio" name="q3" value="b" data-correct>
+          Frasi brevi coordinate tra loro, che procedono per giustapposizione di immagini.
+        </label>
+        <label>
+          <input type="radio" name="q3" value="c">
+          Uso esclusivo del verso libero senza punteggiatura.
+        </label>
+      </div>
+
+      <div class="question" data-question-id="q4">
+        <p><strong>4.</strong> Che cosa indica l&#39;espressione <strong>«silenzio candido»</strong>?</p>
+        <label>
+          <input type="radio" name="q4" value="a">
+          Un semplice silenzio molto profondo.
+        </label>
+        <label>
+          <input type="radio" name="q4" value="b" data-correct>
+          Una sinestesia che unisce sensazioni diverse per esprimere uno stato interiore.
+        </label>
+        <label>
+          <input type="radio" name="q4" value="c">
+          Un modo ironico per indicare il rumore.
+        </label>
+      </div>
+
+      <div class="question" data-question-id="q5">
+        <p><strong>5.</strong> Perché Pascoli diffida della scienza?</p>
+        <label>
+          <input type="radio" name="q5" value="a">
+          Perché impedisce all&#39;uomo di usare la tecnologia.
+        </label>
+        <label>
+          <input type="radio" name="q5" value="b" data-correct>
+          Perché l&#39;uomo l&#39;ha usata per aumentare la violenza senza trovare la felicità.
+        </label>
+        <label>
+          <input type="radio" name="q5" value="c">
+          Perché è incompatibile con la poesia.
+        </label>
+      </div>
+
+      <button type="button" id="btn-correggi-quiz">Correggi test</button>
+      <p id="quiz-feedback" class="quiz-feedback"></p>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <p>Web app &laquo;Giovanni Pascoli – Il fanciullino&raquo; – struttura base HTML, CSS e JavaScript.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
