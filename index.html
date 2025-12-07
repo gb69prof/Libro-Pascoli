@@ -489,349 +489,349 @@
 
   <!-- Script per il caricamento delle mappe + lezioni a richiesta -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const buttons = document.querySelectorAll(".map-btn");
-      const img = document.getElementById("mappa-attiva");
-      const caption = document.getElementById("mappa-didascalia");
-      const lezione = document.getElementById("lezione-testo");
+    // Questo codice parte subito: lo script è alla fine del body,
+    // quindi gli elementi .map-btn esistono già nel DOM.
+    const buttons = document.querySelectorAll(".map-btn");
+    const img = document.getElementById("mappa-attiva");
+    const caption = document.getElementById("mappa-didascalia");
+    const lezione = document.getElementById("lezione-testo");
 
-      const lessonTexts = {
-        introduzione: `
-          <h3>Introduzione: Pascoli e la crisi di fine Ottocento</h3>
-          <p>
-            Pascoli vive in un periodo in cui i grandi punti di riferimento tradizionali
-            – religione, famiglia patriarcale, fiducia nella scienza – stanno cedendo.
-            L&#39;io moderno si scopre fragile, esposto, attraversato da paure e nevrosi.
-          </p>
-          <p>
-            La risposta di Pascoli non è quella del filosofo o dello scienziato, ma
-            quella del poeta: recupera dentro di sé il <strong>fanciullino</strong>, cioè quella parte
-            ingenua e stupita che non ha ancora smesso di meravigliarsi del mondo.
-            La poesia diventa il luogo in cui questo sguardo infantile può parlare.
-          </p>
-          <p>
-            Da qui nascono alcuni nuclei fondamentali della sua poetica: il <strong>nido</strong> come
-            luogo da proteggere, il bisogno di una comunità affettiva chiusa e sicura,
-            la diffidenza verso un progresso che promette molto ma consola poco.
-          </p>
-        `,
-        politica: `
-          <h3>Visione politica: tra socialismo e nazionalismo</h3>
-          <p>
-            Pascoli vive una tensione profonda tra due poli: da un lato il <strong>socialismo</strong>,
-            dall&#39;altro il <strong>nazionalismo</strong>. La sua biografia, segnata da ingiustizie e
-            sofferenze, lo rende sensibile all&#39;idea che tutti gli uomini siano fratelli
-            e che le disuguaglianze sociali vadano combattute.
-          </p>
-          <p>
-            Nel socialismo Pascoli intravede la possibilità di un mondo più giusto:
-            meno povertà, meno violenza economica, più solidarietà. Ma allo stesso
-            tempo avverte il bisogno di protezione e sicurezza, che proietta sulla
-            <strong>nazione</strong>, intesa come un grande nido collettivo da difendere.
-          </p>
-          <p>
-            Così, accanto alla sensibilità sociale, cresce in lui una visione
-            nazionalista: la patria come comunità di destino che va preservata
-            da pericoli esterni. Questa ambivalenza rende la sua posizione difficile
-            da incasellare in categorie politiche rigide, ma perfettamente coerente
-            con la sua psicologia: bisogno di fraternità e, insieme, bisogno di recinto.
-          </p>
-        `,
-        scienza: `
-          <h3>Il rifiuto della scienza: tecnologia e infelicità</h3>
-          <p>
-            Pascoli guarda alla <strong>scienza</strong> con una profonda diffidenza. Nella storia
-            recente vede come l&#39;uomo si sia servito delle scoperte scientifiche non
-            per migliorare la propria condizione, ma per rendere più efficaci le guerre
-            e la violenza.
-          </p>
-          <p>
-            Le nuove tecnologie non portano serenità: amplificano la capacità
-            distruttiva dell&#39;uomo. Il progresso tecnico, invece di coincidere con il
-            progresso morale, sembra staccarsene completamente. L&#39;uomo moderno è
-            più potente, ma non più felice.
-          </p>
-          <p>
-            La scienza ha inoltre contribuito a logorare la <strong>fede religiosa</strong>,
-            togliendo all&#39;uomo antiche consolazioni senza offrirne di nuove. Da qui
-            deriva il tono spesso disincantato di Pascoli: la scienza promette troppo,
-            ma non sa placare il dolore e la paura che abitano l&#39;interiorità.
-          </p>
-        `,
-        simbolismo: `
-          <h3>Pascoli simbolista: le cose umili come specchio dell&#39;anima</h3>
-          <p>
-            La poesia di Pascoli è profondamente <strong>simbolista</strong>. Le cose non sono mai
-            soltanto se stesse: diventano segni che rimandano a uno stato d&#39;animo, a
-            una ferita interiore, a un ricordo dimenticato.
-          </p>
-          <p>
-            Un fiore, una <strong>campana</strong>, il volo di un uccello, il cigolio di un cancello:
-            tutto può caricarsi di significati nascosti. Non esiste un mondo oggettivo
-            e neutro, separato da chi guarda. «Il mondo nasce per ognun che nasce al
-            mondo»: ogni uomo costruisce il proprio mondo interno.
-          </p>
-          <p>
-            In Pascoli, le <strong>cose umili</strong> – un vasetto di fiori, un piccolo animale, una
-            siepe – diventano simboli delicati e insieme potentissimi. Basta un dettaglio
-            minimo a far emergere un’intera vita emotiva: il simbolo è una soglia tra
-            realtà esterna e interiorità.
-          </p>
-        `,
-        siepe: `
-          <h3>La siepe: confine, nido e limite</h3>
-          <p>
-            La <strong>siepe</strong> è una delle immagini chiave della poesia moderna. In Leopardi
-            rappresenta il limite oltre cui l&#39;occhio non può spingersi e, proprio per
-            questo, stimola l&#39;immaginazione dell&#39;infinito.
-          </p>
-          <p>
-            In Pascoli la siepe si intreccia con il simbolo del <strong>nido</strong>. È confine che
-            separa il dentro dal fuori: da una parte la protezione degli affetti, dall&#39;altra
-            un mondo minaccioso, segnato da violenza e morte.
-          </p>
-          <p>
-            La siepe diventa così il segno visibile del bisogno di chiusura: lo spazio
-            domestico è un guscio da difendere. Ma, come in Leopardi, dietro quel
-            limite si intuisce sempre qualcosa che sfugge, che non può essere
-            completamente dominato: una dimensione di mistero che il fanciullino
-            continua a percepire.
-          </p>
-        `,
-        digitale: `
-          <h3>Digitale purpurea: il fiore del proibito</h3>
-          <p>
-            La <strong>digitale purpurea</strong> è una pianta velenosa, dal fiore elegante e
-            affascinante. In Pascoli diventa il simbolo di ciò che attrae e spaventa allo
-            stesso tempo: qualcosa che si vorrebbe toccare ma che non si può
-            avvicinare senza rischiare.
-          </p>
-          <p>
-            Questo fiore rappresenta il <strong>proibito</strong>, ciò che la morale e l&#39;educazione
-            ufficiale nascondono, ma che continua a esercitare una forza magnetica.
-            È la parte rimossa dell&#39;esperienza, che ritorna in forma di immagine
-            poetica.
-          </p>
-          <p>
-            Nella simbolica pascoliana, la digitale purpurea appartiene a un mondo
-            delicato e pericoloso: come molti altri oggetti del suo immaginario, è il
-            punto in cui desiderio e paura si toccano. Il fanciullino la vede, la nomina,
-            ne registra il fascino, senza riuscire a dissolverne del tutto la minaccia.
-          </p>
-        `,
-        fanciullino1: `
-          <h3>Il poeta è un fanciullino</h3>
-          <p>
-            Per Pascoli, in ogni uomo vive un <strong>fanciullino</strong>: una parte infantile che
-            non è mai cresciuta del tutto, che continua a stupirsi, a piangere, a ridere
-            senza un motivo chiaro.
-          </p>
-          <p>
-            Il poeta autentico è colui che non ha soffocato questa voce. Mentre gli
-            adulti si abituano alle cose e smettono di vederle, il fanciullino coglie
-            dettagli minimi, rumori lontani, luci improvvise, e li trasforma in immagini.
-          </p>
-          <p>
-            Essere poeta, allora, non significa usare parole difficili, ma saper ascoltare
-            questo bambino interiore che continua a parlare in noi. La poesia diventa
-            il luogo in cui il mondo viene visto «come se fosse la prima volta».
-          </p>
-        `,
-        fanciullino2: `
-          <h3>La poetica del fanciullino</h3>
-          <p>
-            La <strong>poetica del fanciullino</strong> non è solo una metafora psicologica: è un
-            programma estetico. Se il poeta guarda come un bambino, il suo modo di
-            scrivere deve cambiare.
-          </p>
-          <p>
-            Il fanciullino non costruisce discorsi logici, ma <strong>immagini</strong>. Non spiega, ma
-            mostra. Da qui la tendenza pascoliana a usare frasi brevi, coordinate,
-            accostate come fotogrammi: la sintassi imita il modo infantile di raccontare.
-          </p>
-          <p>
-            Anche il lessico diventa più concreto, sensoriale: suoni, colori, odori,
-            piccole cose. La poesia non parte da idee astratte, ma da una percezione
-            precisa che si dilata in simbolo. Il fanciullino è il regista segreto di questo
-            processo.
-          </p>
-        `,
-        fanciullino3: `
-          <h3>Il fanciullino: sentimento, voce, luogo</h3>
-          <p>
-            Nella teoria pascoliana si possono distinguere tre aspetti del fanciullino:
-            il <strong>sentimento</strong> che prova, la <strong>voce</strong> che parla, il <strong>luogo</strong> da cui parla.
-          </p>
-          <p>
-            Il sentimento è fatto di meraviglia, paura, tenerezza, malinconia: emozioni
-            immediate, non filtrate dalla ragione. La voce è quella del poeta, che
-            registra fedelmente ciò che il fanciullino gli suggerisce.
-          </p>
-          <p>
-            Il luogo è quasi sempre il <strong>nido</strong>, o comunque uno spazio protetto: una
-            finestra, una stanza, un giardino chiuso. Da lì il fanciullino osserva il mondo
-            esterno, che appare grande, lontano e spesso minaccioso. La poesia nasce
-            da questa distanza tra chi guarda e ciò che viene guardato.
-          </p>
-        `,
-        forma: `
-          <h3>La forma: paratassi, frammenti, immagini</h3>
-          <p>
-            La forma della poesia pascoliana è coerente con la psicologia del
-            fanciullino. La sintassi tradizionale, fatta di periodi lunghi e ben organizzati,
-            viene spezzata in <strong>frasi brevi</strong>, spesso semplici, poste una accanto
-            all&#39;altra.
-          </p>
-          <p>
-            Questo tipo di costruzione, detta <strong>paratassi</strong>, crea un andamento
-            frammentario: il discorso non procede per dimostrazione logica, ma per
-            accostamento di quadri. Ogni immagine è un piccolo colpo d&#39;occhio sul
-            mondo, un frammento di percezione.
-          </p>
-          <p>
-            Il risultato è un verso che assomiglia molto al modo di raccontare dei
-            bambini: «e poi... e poi... e poi...». L&#39;ordine non è più quello della logica, ma
-            quello dell&#39;emozione e della memoria.
-          </p>
-        `,
-        sintassi: `
-          <h3>Sintassi scientifica e sintassi pascoliana</h3>
-          <p>
-            Pascoli contrappone una <strong>sintassi scientifica</strong>, razionale e lineare, a una
-            <strong>sintassi poetica</strong> più vicina al modo in cui lavorano l&#39;inconscio e la
-            memoria.
-          </p>
-          <p>
-            La sintassi scientifica è quella dei manuali, delle spiegazioni scolastiche:
-            frasi ordinate, rapporti logici espliciti, gerarchia tra informazioni
-            principali e secondarie.
-          </p>
-          <p>
-            La sintassi pascoliana preferisce invece le coordinate, le sospensioni, le
-            ellissi. Le frasi si accostano come oggetti su un tavolo: il lettore deve
-            cogliere da sé i collegamenti. Non c&#39;è una tesi da dimostrare, ma una
-            <strong>visione</strong> da condividere.
-          </p>
-        `,
-        tecnicheSuono: `
-          <h3>Tecniche del suono: come si fa sentire il tuono</h3>
-          <p>
-            Pascoli è attentissimo al <strong>suono delle parole</strong>. Quando deve rendere, ad
-            esempio, il rumore del tuono, non si limita a dire che «tuona», ma costruisce
-            sequenze di suoni che imitano ciò che descrivono.
-          </p>
-          <p>
-            In versi come «rimbombò, rimbalzò, rotolò» la ripetizione delle sillabe e della
-            consonante <em>r</em> crea un effetto di eco, di colpo che si propaga nello spazio.
-            Non siamo più davanti a una semplice descrizione: il lettore sente quasi
-            fisicamente il rumore.
-          </p>
-          <p>
-            Queste tecniche – allitterazione, onomatopea, rima interna – trasformano
-            il verso in un piccolo laboratorio acustico: il suono diventa parte integrante
-            del significato.
-          </p>
-        `,
-        suonoParola: `
-          <h3>Il suono diventa parola simbolo</h3>
-          <p>
-            In Pascoli il confine tra <strong>rumore</strong> e <strong>parola</strong> è sottilissimo. Alcune espressioni
-            non servono solo a dire qualcosa, ma a <em>farlo sentire</em>.
-          </p>
-          <p>
-            Termini come «bubbòlio» non esistono nella lingua comune: nascono dal
-            tentativo di imitare un suono, e al tempo stesso di dargli un volto. Così il
-            rumore del tuono non è più un semplice dato naturale, ma uno stato
-            d&#39;animo che prende corpo.
-          </p>
-          <p>
-            Il suono, quindi, non è un semplice abbellimento. È uno strumento con cui
-            la poesia costruisce <strong>simboli sonori</strong>: parole che contengono, insieme,
-            un&#39;immagine e una vibrazione emotiva.
-          </p>
-        `,
-        stupore: `
-          <h3>Lo stupore: origine della poesia</h3>
-          <p>
-            Per Pascoli la poesia nasce dallo <strong>stupore</strong>. Il fanciullino si meraviglia di
-            tutto: di un rumore lontano, di una luce improvvisa, di un movimento
-            minimo.
-          </p>
-          <p>
-            Questo stupore non è una curiosità razionale, ma uno sguardo emotivo:
-            il mondo appare ogni volta come nuovo, mai del tutto spiegabile. La
-            poesia è il tentativo di fissare quell&#39;attimo in cui la realtà smette di essere
-            abitudine e torna a essere sorpresa.
-          </p>
-          <p>
-            Nella lettura scolastica, lo stupore del fanciullino è un invito a non
-            ridurre la poesia a schema: dietro ogni figura retorica c&#39;è sempre un momento
-            di sussulto, un piccolo spavento dell&#39;anima davanti al reale.
-          </p>
-        `,
-        sinestesia: `
-          <h3>Sinestesia: il silenzio diventa candido</h3>
-          <p>
-            La <strong>sinestesia</strong> è una figura retorica che incrocia sensazioni diverse: ad
-            esempio vista e udito, tatto e gusto. In espressioni come «silenzio candido»
-            il silenzio – che riguarda l&#39;udito – viene descritto con un aggettivo visivo,
-            «candido».
-          </p>
-          <p>
-            Questo incrocio non è un gioco estetico: serve a rendere uno stato
-            interiore che non può essere detto altrimenti. Non esiste, nella realtà,
-            un silenzio che abbia un colore, ma nella psiche sì.
-          </p>
-          <p>
-            La sinestesia è quindi uno strumento privilegiato della poesia simbolista:
-            collega sensazioni lontane per suggerire un&#39;atmosfera, una sfumatura di
-            coscienza, una vibrazione difficile da tradurre in concetti.
-          </p>
-        `,
-        allitterazione: `
-          <h3>Allitterazione: «rimbombò, rimbalzò, rotolò»</h3>
-          <p>
-            L&#39;<strong>allitterazione</strong> consiste nella ripetizione di suoni simili all&#39;inizio o
-            all&#39;interno di parole vicine. In Pascoli è spesso usata per imitare un rumore
-            o sottolineare un&#39;immagine.
-          </p>
-          <p>
-            Nel celebre verso «rimbombò, rimbalzò, rotolò» la ripetizione delle <em>r</em> e delle
-            sillabe iniziali crea un effetto di rotolamento: il lettore percepisce nel
-            ritmo della lingua ciò che il verso racconta.
-          </p>
-          <p>
-            L&#39;allitterazione è quindi una tecnica di <strong>mimesi sonora</strong>: la parola si avvicina
-            al suono che vuole rappresentare. Per questo, nella spiegazione in classe,
-            non basta riconoscerla: occorre farla ascoltare, pronunciarla ad alta voce,
-            sentirne il peso acustico.
-          </p>
-        `
-      };
+    const lessonTexts = {
+      introduzione: `
+        <h3>Introduzione: Pascoli e la crisi di fine Ottocento</h3>
+        <p>
+          Pascoli vive in un periodo in cui i grandi punti di riferimento tradizionali
+          – religione, famiglia patriarcale, fiducia nella scienza – stanno cedendo.
+          L&#39;io moderno si scopre fragile, esposto, attraversato da paure e nevrosi.
+        </p>
+        <p>
+          La risposta di Pascoli non è quella del filosofo o dello scienziato, ma
+          quella del poeta: recupera dentro di sé il <strong>fanciullino</strong>, cioè quella parte
+          ingenua e stupita che non ha ancora smesso di meravigliarsi del mondo.
+          La poesia diventa il luogo in cui questo sguardo infantile può parlare.
+        </p>
+        <p>
+          Da qui nascono alcuni nuclei fondamentali della sua poetica: il <strong>nido</strong> come
+          luogo da proteggere, il bisogno di una comunità affettiva chiusa e sicura,
+          la diffidenza verso un progresso che promette molto ma consola poco.
+        </p>
+      `,
+      politica: `
+        <h3>Visione politica: tra socialismo e nazionalismo</h3>
+        <p>
+          Pascoli vive una tensione profonda tra due poli: da un lato il <strong>socialismo</strong>,
+          dall&#39;altro il <strong>nazionalismo</strong>. La sua biografia, segnata da ingiustizie e
+          sofferenze, lo rende sensibile all&#39;idea che tutti gli uomini siano fratelli
+          e che le disuguaglianze sociali vadano combattute.
+        </p>
+        <p>
+          Nel socialismo Pascoli intravede la possibilità di un mondo più giusto:
+          meno povertà, meno violenza economica, più solidarietà. Ma allo stesso
+          tempo avverte il bisogno di protezione e sicurezza, che proietta sulla
+          <strong>nazione</strong>, intesa come un grande nido collettivo da difendere.
+        </p>
+        <p>
+          Così, accanto alla sensibilità sociale, cresce in lui una visione
+          nazionalista: la patria come comunità di destino che va preservata
+          da pericoli esterni. Questa ambivalenza rende la sua posizione difficile
+          da incasellare in categorie politiche rigide, ma perfettamente coerente
+          con la sua psicologia: bisogno di fraternità e, insieme, bisogno di recinto.
+        </p>
+      `,
+      scienza: `
+        <h3>Il rifiuto della scienza: tecnologia e infelicità</h3>
+        <p>
+          Pascoli guarda alla <strong>scienza</strong> con una profonda diffidenza. Nella storia
+          recente vede come l&#39;uomo si sia servito delle scoperte scientifiche non
+          per migliorare la propria condizione, ma per rendere più efficaci le guerre
+          e la violenza.
+        </p>
+        <p>
+          Le nuove tecnologie non portano serenità: amplificano la capacità
+          distruttiva dell&#39;uomo. Il progresso tecnico, invece di coincidere con il
+          progresso morale, sembra staccarsene completamente. L&#39;uomo moderno è
+          più potente, ma non più felice.
+        </p>
+        <p>
+          La scienza ha inoltre contribuito a logorare la <strong>fede religiosa</strong>,
+          togliendo all&#39;uomo antiche consolazioni senza offrirne di nuove. Da qui
+          deriva il tono spesso disincantato di Pascoli: la scienza promette troppo,
+          ma non sa placare il dolore e la paura che abitano l&#39;interiorità.
+        </p>
+      `,
+      simbolismo: `
+        <h3>Pascoli simbolista: le cose umili come specchio dell&#39;anima</h3>
+        <p>
+          La poesia di Pascoli è profondamente <strong>simbolista</strong>. Le cose non sono mai
+          soltanto se stesse: diventano segni che rimandano a uno stato d&#39;animo, a
+          una ferita interiore, a un ricordo dimenticato.
+        </p>
+        <p>
+          Un fiore, una <strong>campana</strong>, il volo di un uccello, il cigolio di un cancello:
+          tutto può caricarsi di significati nascosti. Non esiste un mondo oggettivo
+          e neutro, separato da chi guarda. «Il mondo nasce per ognun che nasce al
+          mondo»: ogni uomo costruisce il proprio mondo interno.
+        </p>
+        <p>
+          In Pascoli, le <strong>cose umili</strong> – un vasetto di fiori, un piccolo animale, una
+          siepe – diventano simboli delicati e insieme potentissimi. Basta un dettaglio
+          minimo a far emergere un’intera vita emotiva: il simbolo è una soglia tra
+          realtà esterna e interiorità.
+        </p>
+      `,
+      siepe: `
+        <h3>La siepe: confine, nido e limite</h3>
+        <p>
+          La <strong>siepe</strong> è una delle immagini chiave della poesia moderna. In Leopardi
+          rappresenta il limite oltre cui l&#39;occhio non può spingersi e, proprio per
+          questo, stimola l&#39;immaginazione dell&#39;infinito.
+        </p>
+        <p>
+          In Pascoli la siepe si intreccia con il simbolo del <strong>nido</strong>. È confine che
+          separa il dentro dal fuori: da una parte la protezione degli affetti, dall&#39;altra
+          un mondo minaccioso, segnato da violenza e morte.
+        </p>
+        <p>
+          La siepe diventa così il segno visibile del bisogno di chiusura: lo spazio
+          domestico è un guscio da difendere. Ma, come in Leopardi, dietro quel
+          limite si intuisce sempre qualcosa che sfugge, che non può essere
+          completamente dominato: una dimensione di mistero che il fanciullino
+          continua a percepire.
+        </p>
+      `,
+      digitale: `
+        <h3>Digitale purpurea: il fiore del proibito</h3>
+        <p>
+          La <strong>digitale purpurea</strong> è una pianta velenosa, dal fiore elegante e
+          affascinante. In Pascoli diventa il simbolo di ciò che attrae e spaventa allo
+          stesso tempo: qualcosa che si vorrebbe toccare ma che non si può
+          avvicinare senza rischiare.
+        </p>
+        <p>
+          Questo fiore rappresenta il <strong>proibito</strong>, ciò che la morale e l&#39;educazione
+          ufficiale nascondono, ma che continua a esercitare una forza magnetica.
+          È la parte rimossa dell&#39;esperienza, che ritorna in forma di immagine
+          poetica.
+        </p>
+        <p>
+          Nella simbolica pascoliana, la digitale purpurea appartiene a un mondo
+          delicato e pericoloso: come molti altri oggetti del suo immaginario, è il
+          punto in cui desiderio e paura si toccano. Il fanciullino la vede, la nomina,
+          ne registra il fascino, senza riuscire a dissolverne del tutto la minaccia.
+        </p>
+      `,
+      fanciullino1: `
+        <h3>Il poeta è un fanciullino</h3>
+        <p>
+          Per Pascoli, in ogni uomo vive un <strong>fanciullino</strong>: una parte infantile che
+          non è mai cresciuta del tutto, che continua a stupirsi, a piangere, a ridere
+          senza un motivo chiaro.
+        </p>
+        <p>
+          Il poeta autentico è colui che non ha soffocato questa voce. Mentre gli
+          adulti si abituano alle cose e smettono di vederle, il fanciullino coglie
+          dettagli minimi, rumori lontani, luci improvvise, e li trasforma in immagini.
+        </p>
+        <p>
+          Essere poeta, allora, non significa usare parole difficili, ma saper ascoltare
+          questo bambino interiore che continua a parlare in noi. La poesia diventa
+          il luogo in cui il mondo viene visto «come se fosse la prima volta».
+        </p>
+      `,
+      fanciullino2: `
+        <h3>La poetica del fanciullino</h3>
+        <p>
+          La <strong>poetica del fanciullino</strong> non è solo una metafora psicologica: è un
+          programma estetico. Se il poeta guarda come un bambino, il suo modo di
+          scrivere deve cambiare.
+        </p>
+        <p>
+          Il fanciullino non costruisce discorsi logici, ma <strong>immagini</strong>. Non spiega, ma
+          mostra. Da qui la tendenza pascoliana a usare frasi brevi, coordinate,
+          accostate come fotogrammi: la sintassi imita il modo infantile di raccontare.
+        </p>
+        <p>
+          Anche il lessico diventa più concreto, sensoriale: suoni, colori, odori,
+          piccole cose. La poesia non parte da idee astratte, ma da una percezione
+          precisa che si dilata in simbolo. Il fanciullino è il regista segreto di questo
+          processo.
+        </p>
+      `,
+      fanciullino3: `
+        <h3>Il fanciullino: sentimento, voce, luogo</h3>
+        <p>
+          Nella teoria pascoliana si possono distinguere tre aspetti del fanciullino:
+          il <strong>sentimento</strong> che prova, la <strong>voce</strong> che parla, il <strong>luogo</strong> da cui parla.
+        </p>
+        <p>
+          Il sentimento è fatto di meraviglia, paura, tenerezza, malinconia: emozioni
+          immediate, non filtrate dalla ragione. La voce è quella del poeta, che
+          registra fedelmente ciò che il fanciullino gli suggerisce.
+        </p>
+        <p>
+          Il luogo è quasi sempre il <strong>nido</strong>, o comunque uno spazio protetto: una
+          finestra, una stanza, un giardino chiuso. Da lì il fanciullino osserva il mondo
+          esterno, che appare grande, lontano e spesso minaccioso. La poesia nasce
+          da questa distanza tra chi guarda e ciò che viene guardato.
+        </p>
+      `,
+      forma: `
+        <h3>La forma: paratassi, frammenti, immagini</h3>
+        <p>
+          La forma della poesia pascoliana è coerente con la psicologia del
+          fanciullino. La sintassi tradizionale, fatta di periodi lunghi e ben organizzati,
+          viene spezzata in <strong>frasi brevi</strong>, spesso semplici, poste una accanto
+          all&#39;altra.
+        </p>
+        <p>
+          Questo tipo di costruzione, detta <strong>paratassi</strong>, crea un andamento
+          frammentario: il discorso non procede per dimostrazione logica, ma per
+          accostamento di quadri. Ogni immagine è un piccolo colpo d&#39;occhio sul
+          mondo, un frammento di percezione.
+        </p>
+        <p>
+          Il risultato è un verso che assomiglia molto al modo di raccontare dei
+          bambini: «e poi... e poi... e poi...». L&#39;ordine non è più quello della logica, ma
+          quello dell&#39;emozione e della memoria.
+        </p>
+      `,
+      sintassi: `
+        <h3>Sintassi scientifica e sintassi pascoliana</h3>
+        <p>
+          Pascoli contrappone una <strong>sintassi scientifica</strong>, razionale e lineare, a una
+          <strong>sintassi poetica</strong> più vicina al modo in cui lavorano l&#39;inconscio e la
+          memoria.
+        </p>
+        <p>
+          La sintassi scientifica è quella dei manuali, delle spiegazioni scolastiche:
+          frasi ordinate, rapporti logici espliciti, gerarchia tra informazioni
+          principali e secondarie.
+        </p>
+        <p>
+          La sintassi pascoliana preferisce invece le coordinate, le sospensioni, le
+          ellissi. Le frasi si accostano come oggetti su un tavolo: il lettore deve
+          cogliere da sé i collegamenti. Non c&#39;è una tesi da dimostrare, ma una
+          <strong>visione</strong> da condividere.
+        </p>
+      `,
+      tecnicheSuono: `
+        <h3>Tecniche del suono: come si fa sentire il tuono</h3>
+        <p>
+          Pascoli è attentissimo al <strong>suono delle parole</strong>. Quando deve rendere, ad
+          esempio, il rumore del tuono, non si limita a dire che «tuona», ma costruisce
+          sequenze di suoni che imitano ciò che descrivono.
+        </p>
+        <p>
+          In versi come «rimbombò, rimbalzò, rotolò» la ripetizione delle sillabe e della
+          consonante <em>r</em> crea un effetto di eco, di colpo che si propaga nello spazio.
+          Non siamo più davanti a una semplice descrizione: il lettore sente quasi
+          fisicamente il rumore.
+        </p>
+        <p>
+          Queste tecniche – allitterazione, onomatopea, rima interna – trasformano
+          il verso in un piccolo laboratorio acustico: il suono diventa parte integrante
+          del significato.
+        </p>
+      `,
+      suonoParola: `
+        <h3>Il suono diventa parola simbolo</h3>
+        <p>
+          In Pascoli il confine tra <strong>rumore</strong> e <strong>parola</strong> è sottilissimo. Alcune espressioni
+          non servono solo a dire qualcosa, ma a <em>farlo sentire</em>.
+        </p>
+        <p>
+          Termini come «bubbòlio» non esistono nella lingua comune: nascono dal
+          tentativo di imitare un suono, e al tempo stesso di dargli un volto. Così il
+          rumore del tuono non è più un semplice dato naturale, ma uno stato
+          d&#39;animo che prende corpo.
+        </p>
+        <p>
+          Il suono, quindi, non è un semplice abbellimento. È uno strumento con cui
+          la poesia costruisce <strong>simboli sonori</strong>: parole che contengono, insieme,
+          un&#39;immagine e una vibrazione emotiva.
+        </p>
+      `,
+      stupore: `
+        <h3>Lo stupore: origine della poesia</h3>
+        <p>
+          Per Pascoli la poesia nasce dallo <strong>stupore</strong>. Il fanciullino si meraviglia di
+          tutto: di un rumore lontano, di una luce improvvisa, di un movimento
+          minimo.
+        </p>
+        <p>
+          Questo stupore non è una curiosità razionale, ma uno sguardo emotivo:
+          il mondo appare ogni volta come nuovo, mai del tutto spiegabile. La
+          poesia è il tentativo di fissare quell&#39;attimo in cui la realtà smette di essere
+          abitudine e torna a essere sorpresa.
+        </p>
+        <p>
+          Nella lettura scolastica, lo stupore del fanciullino è un invito a non
+          ridurre la poesia a schema: dietro ogni figura retorica c&#39;è sempre un momento
+          di sussulto, un piccolo spavento dell&#39;anima davanti al reale.
+        </p>
+      `,
+      sinestesia: `
+        <h3>Sinestesia: il silenzio diventa candido</h3>
+        <p>
+          La <strong>sinestesia</strong> è una figura retorica che incrocia sensazioni diverse: ad
+          esempio vista e udito, tatto e gusto. In espressioni come «silenzio candido»
+          il silenzio – che riguarda l&#39;udito – viene descritto con un aggettivo visivo,
+          «candido».
+        </p>
+        <p>
+          Questo incrocio non è un gioco estetico: serve a rendere uno stato
+          interiore che non può essere detto altrimenti. Non esiste, nella realtà,
+          un silenzio che abbia un colore, ma nella psiche sì.
+        </p>
+        <p>
+          La sinestesia è quindi uno strumento privilegiato della poesia simbolista:
+          collega sensazioni lontane per suggerire un&#39;atmosfera, una sfumatura di
+          coscienza, una vibrazione difficile da tradurre in concetti.
+        </p>
+      `,
+      allitterazione: `
+        <h3>Allitterazione: «rimbombò, rimbalzò, rotolò»</h3>
+        <p>
+          L&#39;<strong>allitterazione</strong> consiste nella ripetizione di suoni simili all&#39;inizio o
+          all&#39;interno di parole vicine. In Pascoli è spesso usata per imitare un rumore
+          o sottolineare un&#39;immagine.
+        </p>
+        <p>
+          Nel celebre verso «rimbombò, rimbalzò, rotolò» la ripetizione delle <em>r</em> e delle
+          sillabe iniziali crea un effetto di rotolamento: il lettore percepisce nel
+          ritmo della lingua ciò che il verso racconta.
+        </p>
+        <p>
+          L&#39;allitterazione è quindi una tecnica di <strong>mimesi sonora</strong>: la parola si avvicina
+          al suono che vuole rappresentare. Per questo, nella spiegazione in classe,
+          non basta riconoscerla: occorre farla ascoltare, pronunciarla ad alta voce,
+          sentirne il peso acustico.
+        </p>
+      `
+    };
 
-      buttons.forEach(btn => {
-        btn.addEventListener("click", () => {
-          const file = btn.getAttribute("data-img");
-          const text = btn.getAttribute("data-caption") || "";
-          const lessonId = btn.getAttribute("data-lesson");
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const file = btn.getAttribute("data-img");
+        const text = btn.getAttribute("data-caption") || "";
+        const lessonId = btn.getAttribute("data-lesson");
 
-          // aggiorna stato attivo dei bottoni
-          buttons.forEach(b => b.classList.remove("map-btn-active"));
-          btn.classList.add("map-btn-active");
+        // aggiorna stato attivo dei bottoni
+        buttons.forEach(b => b.classList.remove("map-btn-active"));
+        btn.classList.add("map-btn-active");
 
-          // carica immagine solo ora
-          img.src = "assets/" + file;
-          img.style.display = "block";
-          img.alt = text;
-          caption.textContent = text;
+        // carica immagine solo ora
+        img.src = "assets/" + file;
+        img.style.display = "block";
+        img.alt = text;
+        caption.textContent = text;
 
-          // mostra la lezione collegata
-          if (lessonId && lessonTexts[lessonId]) {
-            lezione.innerHTML = lessonTexts[lessonId];
-          } else {
-            lezione.innerHTML = "Per questa mappa non è ancora stata inserita una lezione testuale.";
-          }
-        });
+        // mostra la lezione collegata
+        if (lessonId && lessonTexts[lessonId]) {
+          lezione.innerHTML = lessonTexts[lessonId];
+        } else {
+          lezione.innerHTML = "Per questa mappa non è ancora stata inserita una lezione testuale.";
+        }
       });
     });
   </script>
