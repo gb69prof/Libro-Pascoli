@@ -1,3 +1,4 @@
+/* RESET MOLTO LEGGERO */
 *,
 *::before,
 *::after {
@@ -8,108 +9,104 @@ body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.6;
-  background: #f5f5fb;
+  background: #f5f3ee;
   color: #222;
 }
 
-/* ---------- HEADER ---------- */
+/* HEADER E NAVBAR */
 
 .topbar {
-  background: linear-gradient(90deg, #ff7b3a, #ffb347);
-  color: #fff;
-  padding: 1.2rem 1.5rem;
-  text-align: center;
+  background: #2c3e50;
+  color: #f7f7f7;
+  padding: 1rem 1.5rem;
+  border-bottom: 4px solid #e67e22;
 }
 
 .topbar h1 {
   margin: 0;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
+  font-size: 1.6rem;
 }
 
 .topbar p {
-  margin: 0.3rem 0 0;
+  margin: 0.25rem 0 0;
   font-size: 0.95rem;
+  opacity: 0.9;
 }
-
-/* ---------- NAVBAR ---------- */
 
 .navbar {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem;
-  padding: 0.6rem 1rem;
-  background: #222;
+  gap: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  background: #34495e;
 }
 
 .navbar a {
-  color: #fff;
+  color: #ecf0f1;
   text-decoration: none;
-  padding: 0.35rem 0.9rem;
+  padding: 0.35rem 0.75rem;
   border-radius: 999px;
   font-size: 0.9rem;
-  border: 1px solid #555;
-  transition: background 0.2s, transform 0.1s;
 }
 
 .navbar a:hover {
-  background: #ff7b3a;
-  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.15);
 }
 
-/* ---------- LAYOUT & PANELS ---------- */
+/* LAYOUT PRINCIPALE */
 
 .layout {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 2fr);
   gap: 1rem;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
 }
 
 .panel {
-  background: #fff;
-  border-radius: 0.85rem;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
-  padding: 1.25rem 1.3rem;
-  margin: 0.7rem 1rem;
+  background: #ffffff;
+  border-radius: 0.9rem;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  margin-bottom: 1rem;
 }
 
-.panel h2 {
-  margin-top: 0;
-  color: #e25315;
-  letter-spacing: 0.03em;
+.main-panel {
+  min-height: 200px;
 }
 
-.panel h3 {
-  margin-top: 0.5rem;
-  color: #1f3c88;
+.side-panel {
+  min-height: 200px;
 }
 
 .full-width {
-  max-width: 1100px;
-  margin-inline: auto;
+  margin: 0 1.5rem 1rem;
 }
 
-/* ---------- TESTO & NOTE ---------- */
+/* Testo introduttivo */
+
+.text-block p {
+  margin-top: 0.5rem;
+}
+
+/* Hint / nota didattica */
 
 .hint {
   font-size: 0.9rem;
   color: #555;
-  background: #f3f4ff;
-  border-left: 3px solid #4f46e5;
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.5rem;
+  border-left: 3px solid #f39c12;
+  padding-left: 0.75rem;
+  margin-bottom: 0.8rem;
 }
 
-.text-block p {
-  margin-bottom: 0.6rem;
-}
-
-/* ---------- MEDIA (VIDEO / IMMAGINI) ---------- */
+/* Media: video */
 
 .media-block {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.media-block h3 {
+  margin-bottom: 0.35rem;
+  font-size: 1rem;
 }
 
 .video-wrapper {
@@ -117,9 +114,8 @@ body {
   padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
-  border-radius: 0.8rem;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.3);
-  margin-top: 0.3rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 .video-wrapper iframe {
@@ -130,187 +126,226 @@ body {
   border: 0;
 }
 
+/* Toolbar generica */
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+}
+
+.toolbar button {
+  border-radius: 999px;
+}
+
+/* Bottoni mappe */
+
+.map-btn {
+  border: 1px solid #d0d3d4;
+  background: #f8f9f9;
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.map-btn:hover {
+  background: #ecf0f1;
+}
+
+.map-btn-active {
+  background: #e67e22;
+  color: #ffffff;
+  border-color: #e67e22;
+}
+
+/* Media grid */
+
 .media-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.5rem;
 }
 
-.media-grid figure {
-  margin: 0;
-  padding: 0.7rem;
-  border-radius: 0.8rem;
-  background: #fafafa;
-  border: 1px solid #e5e7eb;
-}
-
-.media-grid img {
-  width: 100%;
-  display: block;
-  border-radius: 0.5rem;
-}
-
-.media-grid figcaption {
-  font-size: 0.8rem;
-  color: #374151;
-  margin-top: 0.4rem;
-}
-
-/* ---------- TESTO INTERATTIVO ---------- */
-
-.textbook {
-  margin-top: 1rem;
-  border-radius: 0.8rem;
-  border: 1px solid #e5e7eb;
-  padding: 0.9rem 1rem;
-  background: #fcfcff;
-  max-height: 480px;
-  overflow-y: auto;
-}
+/* TESTO INTERATTIVO */
 
 .textbook p {
-  margin: 0.35rem 0;
+  margin: 0.4rem 0;
 }
 
 .textbook span[data-seg] {
   display: inline-block;
-  padding: 0.18rem 0.25rem;
-  border-radius: 0.35rem;
+  padding: 0.2rem 0.15rem;
+  border-radius: 0.3rem;
   cursor: pointer;
-  transition: background 0.15s, box-shadow 0.15s;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
 }
 
 .textbook span[data-seg]:hover {
-  background: #eef2ff;
+  background: #fff5d9;
 }
 
 .textbook span[data-seg].highlighted {
-  background: #fff3bf;
-  box-shadow: 0 0 0 1px #f59e0b;
+  background: #ffeaa7;
+  box-shadow: 0 0 0 1px rgba(243, 156, 18, 0.6);
 }
 
-/* ---------- TOOLBAR / BOTTONI ---------- */
+/* Pannello annidato (riassunto) */
 
-.toolbar {
-  margin-top: 0.8rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+.panel.nested {
+  margin-top: 0.75rem;
+  background: #fcfbf7;
 }
 
-button {
-  border-radius: 999px;
-  border: none;
-  padding: 0.45rem 1.1rem;
-  font-size: 0.9rem;
-  cursor: pointer;
-  background: #4f46e5;
-  color: #fff;
-  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.35);
-  transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
-}
+/* Textarea riassunto */
 
-button:hover {
-  background: #4338ca;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(79, 70, 229, 0.4);
-}
-
-button:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 7px rgba(79, 70, 229, 0.35);
-}
-
-/* Bottoni mappa concettuale */
-
-.map-btn-active {
-  background: #f97316;
-}
-
-/* ---------- TEXTAREA RIASSUNTO ---------- */
-
-textarea#summary-text {
+#summary-text {
   width: 100%;
-  border-radius: 0.75rem;
-  border: 1px solid #d1d5db;
-  padding: 0.75rem;
+  padding: 0.6rem 0.7rem;
+  border-radius: 0.6rem;
+  border: 1px solid #d5d8dc;
   font-family: inherit;
+  font-size: 0.95rem;
   resize: vertical;
 }
 
-/* ---------- QUIZ ---------- */
+/* Pulsanti generici */
+
+button {
+  font-family: inherit;
+  font-size: 0.9rem;
+  border-radius: 0.6rem;
+  border: 1px solid #d5d8dc;
+  padding: 0.35rem 0.8rem;
+  background: #f8f9f9;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ecf0f1;
+}
+
+/* QUIZ */
 
 .question {
-  border-radius: 0.8rem;
-  border: 1px solid #e5e7eb;
-  padding: 0.8rem 1rem;
-  margin-bottom: 0.7rem;
-  background: #fdfdfd;
+  margin-bottom: 0.85rem;
+  padding: 0.6rem 0.7rem;
+  border-radius: 0.6rem;
+  background: #fafafa;
+  border: 1px solid #e5e7e9;
 }
 
 .question p {
-  margin-top: 0;
+  margin: 0 0 0.35rem;
 }
 
 .question label {
   display: block;
   font-size: 0.9rem;
+  margin-bottom: 0.15rem;
   cursor: pointer;
-  margin: 0.15rem 0;
 }
 
-.question input[type="radio"] {
-  margin-right: 0.4rem;
+.question.correct {
+  border-color: #27ae60;
+  background: #eafaf1;
+}
+
+.question.wrong {
+  border-color: #c0392b;
+  background: #fdecea;
 }
 
 .quiz-feedback {
-  margin-top: 0.6rem;
+  margin-top: 0.7rem;
   font-weight: 600;
 }
 
-/* ---------- FOOTER ---------- */
+/* LAVAGNA VIRTUALE */
+
+.lavagna-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.lavagna-toolbar label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.lavagna-toolbar input[type="color"] {
+  width: 2.2rem;
+  height: 2.2rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.lavagna-toolbar input[type="range"] {
+  cursor: pointer;
+}
+
+#lavagna-size-value {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.lavagna-wrapper {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* Il canvas riempie la larghezza del contenitore */
+#lavagna-canvas {
+  display: block;
+  width: 100%;
+  height: 300px; /* altezza iniziale, il JS ridimensiona */
+  touch-action: none; /* evita lo scroll durante il disegno su tablet */
+  background: #ffffff;
+  cursor: crosshair;
+}
+
+@media (min-width: 900px) {
+  #lavagna-canvas {
+    height: 400px;
+  }
+}
+
+/* FOOTER */
 
 .footer {
-  text-align: center;
-  font-size: 0.8rem;
-  color: #6b7280;
-  padding: 1rem 0 1.3rem;
+  padding: 0.75rem 1.5rem 1.25rem;
+  font-size: 0.85rem;
+  color: #666;
 }
 
-/* ---------- PANEL NESTED (sotto il testo) ---------- */
+/* RESPONSIVE */
 
-.panel.nested {
-  margin: 0.9rem 0 0;
-}
-
-/* ---------- RESPONSIVE ---------- */
-
-@media (max-width: 900px) {
+@media (max-width: 800px) {
   .layout {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .panel {
-    margin-inline: 0.7rem;
-  }
-
   .full-width {
-    margin-inline: 0.7rem;
+    margin-inline: 1rem;
   }
-}
 
-@media (max-width: 600px) {
+  .topbar,
   .navbar {
-    justify-content: flex-start;
-    overflow-x: auto;
+    padding-inline: 1rem;
   }
 
-  .navbar a {
-    white-space: nowrap;
-  }
-
-  .textbook {
-    max-height: 360px;
+  .panel {
+    padding-inline: 0.9rem;
   }
 }
