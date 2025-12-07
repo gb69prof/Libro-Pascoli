@@ -9,7 +9,7 @@
 <body>
   <header class="topbar">
     <h1>Giovanni Pascoli – Il fanciullino</h1>
-    <p>Web app libro scolastico: testo interattivo, mappe, video, verifica</p>
+    <p>Web app libro scolastico: testo interattivo, mappe, video, verifica, lavagna</p>
   </header>
 
   <nav class="navbar">
@@ -18,10 +18,11 @@
     <a href="#mappe">Mappe</a>
     <a href="#testo">Testo interattivo</a>
     <a href="#quiz">Verifica</a>
+    <a href="#lavagna">Lavagna</a>
   </nav>
 
   <main class="layout">
-    <!-- Colonna sinistra: testo e evidenziazioni -->
+    <!-- Colonna sinistra: testo introduttivo -->
     <section class="panel main-panel" id="intro">
       <h2>Introduzione a Pascoli</h2>
       <p class="hint">
@@ -480,16 +481,46 @@
     </form>
   </section>
 
+  <!-- LAVAGNA VIRTUALE -->
+  <section class="panel full-width" id="lavagna">
+    <h2>Lavagna – Appunti con penna virtuale</h2>
+    <p class="hint">
+      Usa il mouse, il dito o la penna sul tablet per scrivere sulla lavagna.
+      Puoi scegliere il colore, lo spessore del tratto, cancellare tutto o
+      scaricare l&#39;immagine degli appunti.
+    </p>
+
+    <div class="lavagna-toolbar">
+      <label>
+        Colore:
+        <input type="color" id="lavagna-color" value="#000000">
+      </label>
+
+      <label>
+        Spessore:
+        <input type="range" id="lavagna-size" min="1" max="20" value="3">
+        <span id="lavagna-size-value">3 px</span>
+      </label>
+
+      <button type="button" id="lavagna-clear">Pulisci lavagna</button>
+      <button type="button" id="lavagna-download">Scarica immagine</button>
+    </div>
+
+    <div class="lavagna-wrapper">
+      <canvas id="lavagna-canvas"></canvas>
+    </div>
+  </section>
+
   <footer class="footer">
-    <p>Web app &laquo;Giovanni Pascoli – Il fanciullino&raquo; – struttura base HTML, CSS e JavaScript.</p>
+    <p>Web app &laquo;Giovanni Pascoli – Il fanciullino&raquo; – HTML, CSS e JavaScript.</p>
   </footer>
 
-  <!-- Script principale (sottolineature + quiz + riassunto + download) -->
+  <!-- Script principale (sottolineature + quiz + riassunto + lavagna) -->
   <script src="script.js"></script>
 
   <!-- Script per il caricamento delle mappe + lezioni a richiesta -->
   <script>
-    // Script eseguito subito (lo script è alla fine del body, quindi il DOM è già pronto)
+    // Script mappe concettuali (eseguito a fine body)
     const buttons = document.querySelectorAll(".map-btn");
     const img = document.getElementById("mappa-attiva");
     const caption = document.getElementById("mappa-didascalia");
@@ -609,8 +640,6 @@
         <p>
           Questo fiore rappresenta il <strong>proibito</strong>, ciò che la morale e l&#39;educazione
           ufficiale nascondono, ma che continua a esercitare una forza magnetica.
-          È la parte rimossa dell&#39;esperienza, che ritorna in forma di immagine
-          poetica.
         </p>
         <p>
           Nella simbolica pascoliana, la digitale purpurea appartiene a un mondo
@@ -723,8 +752,6 @@
         <p>
           In versi come «rimbombò, rimbalzò, rotolò» la ripetizione delle sillabe e della
           consonante <em>r</em> crea un effetto di eco, di colpo che si propaga nello spazio.
-          Non siamo più davanti a una semplice descrizione: il lettore sente quasi
-          fisicamente il rumore.
         </p>
         <p>
           Queste tecniche – allitterazione, onomatopea, rima interna – trasformano
