@@ -263,8 +263,8 @@
     <h2>Testo interattivo – Il pensiero di Pascoli</h2>
     <p class="hint">
       Clicca sui blocchi di testo per evidenziarli. Le evidenziazioni rimangono salvate
-      nel browser (anche se chiudi la pagina). Con il pulsante in fondo puoi creare un
-      testo composto solo dalle parti evidenziate.
+      nel browser (anche se chiudi la pagina). Puoi anche selezionare a mano parti
+      di testo e aggiungerle al tuo riassunto personale.
     </p>
 
     <article class="textbook">
@@ -348,17 +348,19 @@
 
     <div class="toolbar">
       <button id="btn-genera-riassunto">Crea testo dalle parti evidenziate</button>
+      <button id="btn-add-selection">Aggiungi selezione al riassunto</button>
+      <button id="btn-download-summary">Scarica il riassunto (.txt)</button>
       <button id="btn-pulisci-evidenziazioni">Pulisci tutte le evidenziazioni</button>
     </div>
 
     <section class="panel nested">
-      <h3>Testo generato dalle evidenziazioni</h3>
+      <h3>Testo generato dalle evidenziazioni / selezioni</h3>
       <p class="hint">
-        Qui sotto appare il testo ottenuto unendo solo i blocchi che hai evidenziato.
-        Puoi copiarlo, modificarlo e usarlo come base per il tuo ripasso.
+        Qui sotto appare il testo ottenuto dai blocchi evidenziati e dalle selezioni
+        manuali. Puoi modificarlo liberamente: resterà salvato nel browser.
       </p>
       <textarea id="summary-text" rows="7"
-        placeholder="Clicca su &quot;Crea testo dalle parti evidenziate&quot; per costruire il tuo riassunto."></textarea>
+        placeholder="Clicca su &quot;Crea testo dalle parti evidenziate&quot; o usa &quot;Aggiungi selezione al riassunto&quot;."></textarea>
     </section>
   </section>
 
@@ -459,7 +461,7 @@
     <p>Web app &laquo;Giovanni Pascoli – Il fanciullino&raquo; – struttura base HTML, CSS e JavaScript.</p>
   </footer>
 
-  <!-- Script principale (sottolineature + quiz) -->
+  <!-- Script principale (sottolineature + quiz + riassunto + download) -->
   <script src="script.js"></script>
 
   <!-- Script per il caricamento delle mappe a richiesta -->
@@ -489,4 +491,5 @@
   </script>
 </body>
 </html>
+
 
